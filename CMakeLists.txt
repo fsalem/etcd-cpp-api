@@ -8,7 +8,7 @@ find_package(Boost REQUIRED COMPONENTS system thread locale random)
 
 set(WITH_TEST TRUE CACHE BOOL "Enable testing.")
 if(WITH_TEST AND NOT CATCH_FOUND)
-  message(STATUS "Libraries not found: catch. Disabling testing.")
+  message(STATUS "Library not found: catch. Disabling testing.")
 endif()
 
 set (etcd-cpp-api_VERSION_MAJOR 0)
