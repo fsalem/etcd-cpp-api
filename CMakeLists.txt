@@ -6,6 +6,11 @@ find_package(CPPREST)
 find_package(CATCH)
 find_package(Boost REQUIRED COMPONENTS system thread locale random)
 
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+  set(OPENSSL_ROOT_DIR /usr/local/opt/openssl)
+endif()
+find_package(OpenSSL REQUIRED)
+
 set(WITH_TEST TRUE CACHE BOOL "Enable testing.")
 if(WITH_TEST AND NOT CATCH_FOUND)
   message(STATUS "Library not found: catch. Disabling testing.")
