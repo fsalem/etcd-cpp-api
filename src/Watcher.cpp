@@ -35,7 +35,7 @@ void etcd::Watcher::watch() {
           etcd::Response resp = resp_task.get();
           _index = resp.value().modified_index() + 1;
           _callback(resp);
-        } catch (web::http::http_exception) {
+        } catch (web::http::http_exception &) {
           // renew watch in case of prematurely closed connection
           watch();
         }
